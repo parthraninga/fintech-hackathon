@@ -1,0 +1,80 @@
+{
+  "gstin": "24AAXFA5297L1ZN",
+  "legal_name": "ARIHANT TRADE WORLD",
+  "trade_name": "ARIHANT TRADE WORD",
+  "pan": "AAXFA5297L",
+  "registration_date": "01-Jul-2017",
+  "constitution": "Partnership",
+  "taxpayer_type": "Regular",
+  "status": "Active",
+  "state": "Gujarat",
+  "pin_code": "370421",
+  "cancellation_date": "-",
+  "state_jurisdiction": "Ghatak 102 (Bhuj)",
+  "centre_jurisdiction": "MUNDRA - RANGE I",
+  "nature_of_business": "Retail Business, Wholesale Business",
+  "recent_returns": [
+    {
+      "return_type": "GSTR-3B",
+      "period": "Sep 2019",
+      "filed_date": "07-Nov-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-1",
+      "period": "Aug 2019",
+      "filed_date": "04-Oct-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-3B",
+      "period": "Aug 2019",
+      "filed_date": "26-Sep-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-1",
+      "period": "Jul 2019",
+      "filed_date": "21-Sep-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-3B",
+      "period": "Jul 2019",
+      "filed_date": "22-Aug-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-1",
+      "period": "Jun 2019",
+      "filed_date": "29-Jul-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-3B",
+      "period": "Jun 2019",
+      "filed_date": "20-Jul-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-1",
+      "period": "May 2019",
+      "filed_date": "22-Jun-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-3B",
+      "period": "May 2019",
+      "filed_date": "22-Jun-2019",
+      "status": "Filed"
+    },
+    {
+      "return_type": "GSTR-3B",
+      "period": "Apr 2019",
+      "filed_date": "28-May-2019",
+      "status": "Filed"
+    }
+  ],
+  "api_source": "GSTZen",
+  "extracted_on": "2025-11-07T11:46:44.556563"
+}
