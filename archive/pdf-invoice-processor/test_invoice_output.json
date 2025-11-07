@@ -1,0 +1,46 @@
+{
+  "invoice_number": "INV-2024-0156",
+  "invoice_date": "2024-03-15",
+  "due_date": "2024-03-30",
+  "vendor": {
+    "name": "TechCorp Solutions Pvt Ltd",
+    "address": "123 Business Park, Sector 14\nGurgaon, Haryana - 122001",
+    "gstin": "06AABCT1234L1Z5",
+    "phone": "+91-124-4567890",
+    "email": "billing@techcorp.com"
+  },
+  "customer": {
+    "name": "MegaMart Enterprises",
+    "address": "456 Trade Center, Connaught Place\nNew Delhi - 110001",
+    "gstin": "07AABME5678P1W3"
+  },
+  "items": [
+    {
+      "description": "Software License - Annual",
+      "quantity": 1,
+      "unit_price": 75000,
+      "total_amount": 75000
+    },
+    {
+      "description": "Implementation Services",
+      "quantity": 1,
+      "unit_price": 25000,
+      "total_amount": 25000
+    },
+    {
+      "description": "Training & Support",
+      "quantity": 1,
+      "unit_price": 15000,
+      "total_amount": 15000
+    }
+  ],
+  "totals": {
+    "subtotal": 115000,
+    "cgst": 10350,
+    "sgst": 10350,
+    "igst": 0,
+    "grand_total": 135700
+  },
+  "currency": "Rupees",
+  "terms_conditions": "1. Payment within 15 days\n2. Late payment charges: 2% per month\n3. Subject to Delhi jurisdiction"
+}

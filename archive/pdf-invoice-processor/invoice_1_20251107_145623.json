@@ -1,0 +1,40 @@
+{
+  "invoice_number": "197",
+  "invoice_date": "2025-08-20",
+  "due_date": "NO",
+  "vendor": {
+    "name": "DB ISKO ENGINEERING PVT. LTO.",
+    "address": "PLOTNC 718,246 GIDC PALEJ SAD 25-26 197\nPALEJ DIST BHARUCH 44000",
+    "gstin": "NO",
+    "phone": "631959836642",
+    "email": "NO"
+  },
+  "customer": {
+    "name": "Shete Nasr",
+    "address": "NO",
+    "gstin": "NO"
+  },
+  "items": [
+    {
+      "description": "BASKET mate",
+      "quantity": 600,
+      "unit_price": 10.23,
+      "total_amount": 792.0
+    },
+    {
+      "description": "NO",
+      "quantity": 6.0,
+      "unit_price": 12.08,
+      "total_amount": 0
+    }
+  ],
+  "totals": {
+    "subtotal": 23.797,
+    "cgst": 92.14128,
+    "sgst": 92.14128,
+    "igst": 0,
+    "grand_total": 184.28256
+  },
+  "currency": "INR",
+  "terms_conditions": "30 DAYS"
+}

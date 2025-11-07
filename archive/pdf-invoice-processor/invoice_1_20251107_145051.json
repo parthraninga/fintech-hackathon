@@ -1,0 +1,34 @@
+{
+  "invoice_number": "197",
+  "invoice_date": "2025-08-20",
+  "due_date": "2025-08-19",
+  "vendor": {
+    "name": "DB ISKO ENGINEERING PVT. LTO.",
+    "address": "PLOTNC 718.246 GIDC PALES SAD 25-26 197\nPALEJ DIST BHARUCH 44000",
+    "gstin": "16dCcD 15",
+    "phone": "631959836642",
+    "email": ""
+  },
+  "customer": {
+    "name": "HIDYAR® UDYAM",
+    "address": "25-26 197",
+    "gstin": ""
+  },
+  "items": [
+    {
+      "description": "BASKET mate",
+      "quantity": 600,
+      "unit_price": 0,
+      "total_amount": 1023792.0
+    }
+  ],
+  "totals": {
+    "subtotal": 1023797.0,
+    "cgst": 92141.28,
+    "sgst": 92141.28,
+    "igst": 0,
+    "grand_total": 184282.56
+  },
+  "currency": "INR",
+  "terms_conditions": "30 DAYS"
+}
