@@ -1,0 +1,69 @@
+{
+  "batch_summary": {
+    "total_documents": 2,
+    "successful_processed": 2,
+    "failed_processed": 0,
+    "total_processing_time": 131.25503063201904,
+    "average_processing_time": 65.62751531600952,
+    "total_invoice_amount": 1362689.0,
+    "total_tax_amount": 207867.8,
+    "unique_suppliers": 2,
+    "validation_passed": 0,
+    "validation_failed": 2,
+    "duplicates_detected": 0,
+    "unique_documents": 2,
+    "document_types": {
+      "B2B_INVOICE": 2
+    },
+    "top_suppliers": [
+      {
+        "name": "ISKO ENGINEERING PVT LTD",
+        "total_amount": 1208075.0,
+        "invoice_count": 1
+      },
+      {
+        "name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+        "total_amount": 154614.0,
+        "invoice_count": 1
+      }
+    ],
+    "insights": [
+      "Successfully processed 2/2 documents (100.0%)",
+      "Total invoice value: ₹1,362,689.00",
+      "Average processing time: 65.63s per document",
+      "Processed invoices from 2 unique suppliers"
+    ]
+  },
+  "individual_results": [
+    {
+      "doc_id": "1",
+      "success": true,
+      "processing_time": 89.6290910243988,
+      "invoice_number": "SBD/25-26/197",
+      "supplier_name": "ISKO ENGINEERING PVT LTD",
+      "total_amount": 1208075.0,
+      "validation_passed": false,
+      "is_duplicate": false,
+      "pdf_report_path": "reports/invoice_analysis_SBD_25-26_197_20251108_023205.pdf",
+      "errors": []
+    },
+    {
+      "doc_id": "17",
+      "success": true,
+      "processing_time": 40.61512207984924,
+      "invoice_number": "IMR/25/AEL/003",
+      "supplier_name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+      "total_amount": 154614.0,
+      "validation_passed": false,
+      "is_duplicate": false,
+      "pdf_report_path": null,
+      "errors": []
+    }
+  ],
+  "timestamp": "2025-11-08T02:32:46.758610",
+  "processing_metadata": {
+    "processor_version": "1.0.0",
+    "database_path": "invoice_management.db",
+    "llm_enabled": true
+  }
+}

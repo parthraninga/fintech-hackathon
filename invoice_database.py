@@ -93,6 +93,8 @@ class InvoiceDatabase:
                 total_value DECIMAL(15,2),
                 currency VARCHAR(3) DEFAULT 'INR',
                 status VARCHAR(20) DEFAULT 'PENDING',
+                validation BOOLEAN DEFAULT 0,
+                duplication BOOLEAN DEFAULT 0,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (doc_id) REFERENCES documents(doc_id),
                 FOREIGN KEY (supplier_company_id) REFERENCES companies(company_id),
@@ -144,9 +146,35 @@ class InvoiceDatabase:
             )
         """)
         
+        # Table 7: gst_companies - GST validation and company details
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS gst_companies (
+                gst_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                gstin VARCHAR(15) UNIQUE NOT NULL,
+                legal_name VARCHAR(255),
+                trade_name VARCHAR(255),
+                pan VARCHAR(10),
+                registration_date VARCHAR(20),
+                constitution VARCHAR(100),
+                taxpayer_type VARCHAR(50),
+                status VARCHAR(20),
+                state VARCHAR(50),
+                pin_code VARCHAR(10),
+                cancellation_date VARCHAR(20),
+                state_jurisdiction VARCHAR(255),
+                centre_jurisdiction VARCHAR(255),
+                nature_of_business TEXT,
+                api_source VARCHAR(50),
+                last_verified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
         # Create indexes for better performance
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_documents_type ON documents(doc_type)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_companies_gstin ON companies(gstin)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_gst_companies_gstin ON gst_companies(gstin)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_gst_companies_status ON gst_companies(status)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_hsn ON products(hsn_code)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_invoices_num ON invoices(invoice_num)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_invoices_date ON invoices(invoice_date)")
@@ -330,6 +358,188 @@ class InvoiceDatabase:
         if self.conn:
             self.conn.close()
             print("📝 Database connection closed")
+    
+    # GST Database Methods
+    def store_gst_data(self, gst_data: Dict[str, Any]) -> int:
+        """Store GST company data in database"""
+        cursor = self.conn.cursor()
+        
+        cursor.execute("""
+            INSERT OR REPLACE INTO gst_companies 
+            (gstin, legal_name, trade_name, pan, registration_date, constitution,
+             taxpayer_type, status, state, pin_code, cancellation_date,
+             state_jurisdiction, centre_jurisdiction, nature_of_business, api_source)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            gst_data.get('gstin'),
+            gst_data.get('legal_name'),
+            gst_data.get('trade_name'),
+            gst_data.get('pan'),
+            gst_data.get('registration_date'),
+            gst_data.get('constitution'),
+            gst_data.get('taxpayer_type'),
+            gst_data.get('status'),
+            gst_data.get('state'),
+            gst_data.get('pin_code'),
+            gst_data.get('cancellation_date'),
+            gst_data.get('state_jurisdiction'),
+            gst_data.get('centre_jurisdiction'),
+            gst_data.get('nature_of_business'),
+            gst_data.get('api_source')
+        ))
+        
+        self.conn.commit()
+        return cursor.lastrowid
+    
+    def get_gst_company(self, gstin: str) -> Optional[Dict[str, Any]]:
+        """Get GST company data by GSTIN"""
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT * FROM gst_companies WHERE gstin = ?", (gstin,))
+        row = cursor.fetchone()
+        
+        if row:
+            columns = [desc[0] for desc in cursor.description]
+            return dict(zip(columns, row))
+        return None
+    
+    def search_companies_by_name(self, company_name: str, threshold: float = 0.7) -> List[Dict[str, Any]]:
+        """Search companies by name with fuzzy matching"""
+        cursor = self.conn.cursor()
+        
+        # Get all company names for fuzzy matching
+        cursor.execute("SELECT * FROM gst_companies")
+        all_companies = cursor.fetchall()
+        
+        if not all_companies:
+            return []
+        
+        columns = [desc[0] for desc in cursor.description]
+        companies_data = [dict(zip(columns, row)) for row in all_companies]
+        
+        # Simple fuzzy matching using edit distance approximation
+        matches = []
+        company_name_lower = company_name.lower()
+        
+        for company in companies_data:
+            legal_name = (company.get('legal_name') or '').lower()
+            trade_name = (company.get('trade_name') or '').lower()
+            
+            # Simple similarity check
+            legal_similarity = self._calculate_similarity(company_name_lower, legal_name)
+            trade_similarity = self._calculate_similarity(company_name_lower, trade_name)
+            
+            max_similarity = max(legal_similarity, trade_similarity)
+            
+            if max_similarity >= threshold:
+                company['similarity_score'] = max_similarity
+                matches.append(company)
+        
+        # Sort by similarity score descending
+        matches.sort(key=lambda x: x['similarity_score'], reverse=True)
+        return matches
+    
+    def _calculate_similarity(self, str1: str, str2: str) -> float:
+        """Calculate simple similarity score between two strings"""
+        if not str1 or not str2:
+            return 0.0
+        
+        # Simple approach: check for common words and character overlap
+        words1 = set(str1.split())
+        words2 = set(str2.split())
+        
+        if not words1 or not words2:
+            return 0.0
+        
+        # Jaccard similarity for words
+        word_similarity = len(words1.intersection(words2)) / len(words1.union(words2))
+        
+        # Character similarity
+        chars1 = set(str1.replace(' ', ''))
+        chars2 = set(str2.replace(' ', ''))
+        char_similarity = len(chars1.intersection(chars2)) / len(chars1.union(chars2))
+        
+        # Combined score (weighted toward word similarity)
+        return (word_similarity * 0.7) + (char_similarity * 0.3)
+    
+    def check_for_duplicates(self, invoice_num: str, supplier_id: int, total_value: float) -> bool:
+        """Check if an invoice is a potential duplicate"""
+        cursor = self.conn.cursor()
+        
+        cursor.execute("""
+            SELECT invoice_id FROM invoices 
+            WHERE invoice_num = ? AND supplier_company_id = ? AND total_value = ?
+        """, (invoice_num, supplier_id, total_value))
+        
+        return cursor.fetchone() is not None
+    
+    def mark_as_duplicate(self, invoice_id: int, is_duplicate: bool = True):
+        """Mark an invoice as duplicate or not"""
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            UPDATE invoices SET duplication = ? WHERE invoice_id = ?
+        """, (1 if is_duplicate else 0, invoice_id))
+        self.conn.commit()
+        print(f"✅ Invoice {invoice_id} marked as {'duplicate' if is_duplicate else 'unique'}")
+    
+    def validate_invoice(self, invoice_id: int, is_valid: bool = True):
+        """Mark an invoice as validated or not"""
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            UPDATE invoices SET validation = ? WHERE invoice_id = ?
+        """, (1 if is_valid else 0, invoice_id))
+        self.conn.commit()
+        print(f"✅ Invoice {invoice_id} marked as {'validated' if is_valid else 'not validated'}")
+    
+    def get_invoice_status(self, invoice_id: int) -> Dict[str, Any]:
+        """Get validation and duplication status of an invoice"""
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            SELECT 
+                invoice_num,
+                validation,
+                duplication,
+                status,
+                total_value,
+                created_at
+            FROM invoices 
+            WHERE invoice_id = ?
+        """, (invoice_id,))
+        
+        result = cursor.fetchone()
+        if result:
+            return {
+                "invoice_num": result[0],
+                "is_validated": bool(result[1]),
+                "is_duplicate": bool(result[2]),
+                "status": result[3],
+                "total_value": result[4],
+                "created_at": result[5]
+            }
+        return None
+    
+    def get_validation_summary(self) -> Dict[str, int]:
+        """Get summary of validation and duplication statistics"""
+        cursor = self.conn.cursor()
+        
+        stats = {}
+        
+        # Total invoices
+        cursor.execute("SELECT COUNT(*) FROM invoices")
+        stats["total_invoices"] = cursor.fetchone()[0]
+        
+        # Validated invoices
+        cursor.execute("SELECT COUNT(*) FROM invoices WHERE validation = 1")
+        stats["validated_invoices"] = cursor.fetchone()[0]
+        
+        # Duplicate invoices
+        cursor.execute("SELECT COUNT(*) FROM invoices WHERE duplication = 1")
+        stats["duplicate_invoices"] = cursor.fetchone()[0]
+        
+        # Pending validation
+        cursor.execute("SELECT COUNT(*) FROM invoices WHERE validation = 0")
+        stats["pending_validation"] = cursor.fetchone()[0]
+        
+        return stats
 
 def main():
     """Main function to create and initialize the database"""

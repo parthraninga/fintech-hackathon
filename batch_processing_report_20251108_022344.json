@@ -1,0 +1,70 @@
+{
+  "batch_summary": {
+    "total_documents": 2,
+    "successful_processed": 2,
+    "failed_processed": 0,
+    "total_processing_time": 138.26015496253967,
+    "average_processing_time": 69.13007748126984,
+    "total_invoice_amount": 1362689.0,
+    "total_tax_amount": 207867.8,
+    "unique_suppliers": 2,
+    "validation_passed": 0,
+    "validation_failed": 2,
+    "duplicates_detected": 1,
+    "unique_documents": 1,
+    "document_types": {
+      "B2B_INVOICE": 2
+    },
+    "top_suppliers": [
+      {
+        "name": "ISKO ENGINEERING PVT LTD",
+        "total_amount": 1208075.0,
+        "invoice_count": 1
+      },
+      {
+        "name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+        "total_amount": 154614.0,
+        "invoice_count": 1
+      }
+    ],
+    "insights": [
+      "Successfully processed 2/2 documents (100.0%)",
+      "Total invoice value: ₹1,362,689.00",
+      "Average processing time: 69.13s per document",
+      "⚠️ 1 potential duplicates detected",
+      "Processed invoices from 2 unique suppliers"
+    ]
+  },
+  "individual_results": [
+    {
+      "doc_id": "1",
+      "success": true,
+      "processing_time": 92.72637009620667,
+      "invoice_number": "SBD/25-26/197",
+      "supplier_name": "ISKO ENGINEERING PVT LTD",
+      "total_amount": 1208075.0,
+      "validation_passed": false,
+      "is_duplicate": false,
+      "pdf_report_path": "reports/invoice_analysis_SBD_25-26_197_20251108_022258.pdf",
+      "errors": []
+    },
+    {
+      "doc_id": "17",
+      "success": true,
+      "processing_time": 44.522878885269165,
+      "invoice_number": "IMR/25/AEL/003",
+      "supplier_name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+      "total_amount": 154614.0,
+      "validation_passed": false,
+      "is_duplicate": true,
+      "pdf_report_path": null,
+      "errors": []
+    }
+  ],
+  "timestamp": "2025-11-08T02:23:44.361965",
+  "processing_metadata": {
+    "processor_version": "1.0.0",
+    "database_path": "invoice_management.db",
+    "llm_enabled": true
+  }
+}

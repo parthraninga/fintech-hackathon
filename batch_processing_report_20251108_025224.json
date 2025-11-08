@@ -1,0 +1,55 @@
+{
+  "batch_summary": {
+    "total_documents": 2,
+    "successful_processed": 0,
+    "failed_processed": 2,
+    "total_processing_time": 115.61152791976929,
+    "average_processing_time": 57.805763959884644,
+    "total_invoice_amount": 0.0,
+    "total_tax_amount": 0.0,
+    "unique_suppliers": 0,
+    "validation_passed": 0,
+    "validation_failed": 0,
+    "duplicates_detected": 0,
+    "unique_documents": 0,
+    "document_types": {},
+    "top_suppliers": [],
+    "insights": []
+  },
+  "individual_results": [
+    {
+      "doc_id": "1",
+      "success": false,
+      "processing_time": 66.15317821502686,
+      "invoice_number": "SBD/25-26/197",
+      "supplier_name": "ISKO ENGINEERING PVT LTD",
+      "total_amount": 1208075.0,
+      "validation_passed": null,
+      "is_duplicate": null,
+      "pdf_report_path": null,
+      "errors": [
+        "Database storage error: 'ArithmeticValidator' object has no attribute 'conn'"
+      ]
+    },
+    {
+      "doc_id": "17",
+      "success": false,
+      "processing_time": 48.44715905189514,
+      "invoice_number": "IMR/25/AEL/003",
+      "supplier_name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+      "total_amount": 154614.0,
+      "validation_passed": null,
+      "is_duplicate": null,
+      "pdf_report_path": null,
+      "errors": [
+        "Database storage error: 'ArithmeticValidator' object has no attribute 'conn'"
+      ]
+    }
+  ],
+  "timestamp": "2025-11-08T02:52:24.145330",
+  "processing_metadata": {
+    "processor_version": "1.0.0",
+    "database_path": "invoice_management.db",
+    "llm_enabled": true
+  }
+}

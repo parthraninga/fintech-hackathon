@@ -1,0 +1,134 @@
+{
+  "gstin": "06ANSPK3486H1ZI",
+  "legal_name": "AJIT  KUMAR",
+  "trade_name": "OM FLEX PRINTING",
+  "pan": "ANSPK3486H",
+  "registration_date": "01-Jul-2017",
+  "constitution": "Proprietorship",
+  "taxpayer_type": "Regular",
+  "status": "Active",
+  "state": "Haryana",
+  "pin_code": "122001",
+  "cancellation_date": "-",
+  "state_jurisdiction": "Gurgaon (West) Ward 7",
+  "centre_jurisdiction": "R-9",
+  "nature_of_business": "Factory / Manufacturing, Retail Business, Others",
+  "api_source": "GSTZen",
+  "extracted_on": "2025-11-08T03:58:25.000344",
+  "gst_returns": {
+    "total_returns_filed": 15,
+    "returns_summary": {
+      "total_filings": 15,
+      "return_types": {
+        "GSTR-1": 11,
+        "GSTR-3B": 4
+      },
+      "filing_frequency": {
+        "2024": 10,
+        "2023": 5
+      },
+      "latest_filing": {
+        "date_str": "23-Jul-2024",
+        "return_type": "GSTR-3B",
+        "period": "Jun 2024"
+      },
+      "oldest_filing": {
+        "date_str": "03-Nov-2023",
+        "return_type": "GSTR-1",
+        "period": "Oct 2023"
+      }
+    },
+    "detailed_filings": [
+      {
+        "return_type": "GSTR-1",
+        "period": "Jun 2024",
+        "filed_date": "13-Jul-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-3B",
+        "period": "Jun 2024",
+        "filed_date": "23-Jul-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "May 2024",
+        "filed_date": "05-Jun-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Apr 2024",
+        "filed_date": "11-May-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Mar 2024",
+        "filed_date": "12-Apr-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-3B",
+        "period": "Mar 2024",
+        "filed_date": "23-Apr-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Feb 2024",
+        "filed_date": "13-Mar-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Jan 2024",
+        "filed_date": "12-Feb-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Dec 2023",
+        "filed_date": "13-Jan-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-3B",
+        "period": "Dec 2023",
+        "filed_date": "20-Jan-2024",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Nov 2023",
+        "filed_date": "12-Dec-2023",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Oct 2023",
+        "filed_date": "03-Nov-2023",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Sep 2023",
+        "filed_date": "13-Oct-2023",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-3B",
+        "period": "Sep 2023",
+        "filed_date": "19-Oct-2023",
+        "status": "Filed"
+      },
+      {
+        "return_type": "GSTR-1",
+        "period": "Aug 2023",
+        "filed_date": "12-Sep-2023",
+        "status": "Filed"
+      }
+    ]
+  }
+}

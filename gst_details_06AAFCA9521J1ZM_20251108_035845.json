@@ -1,0 +1,29 @@
+{
+  "gstin": "06AAFCA9521J1ZM",
+  "legal_name": "ADANI INFRASTRUCTURE AND DEVELOPERS PRIVATE LIMITED - GSTIN 06AAFCA9521J1ZM \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                GSTZen\n            \n\n\n\n        Quick Links\n        \n\n\n\n\n\n\n\n\n\n\nJSON to Excel Converter\n\nConvert JSON to Excel easily\n\n\n\n\n\n\nCalculators\n\nFinancial and tax calculators\n\n\n\n\n\n\nMaster Codes\n\nView master data\n\n\n\n\n\n\nE-Invoice Utilities\n\nE-invoice generation utilities\n\n\n\n\n\n\nE-Way Bill Utilities\n\nGenerate and manage e-way bills\n\n\n\n\n\n\nValidators\n\nValidate GSTNs and more\n\n\n\n\n\n\nAPI Docs\n\nE-Invoice, E-Way Bill & More\n\n\n\n\n\n                    More Tools\n                \n\n\n\n\n\nSearch GSTIN\n\n\n\n        Log In\n    \n\n        Sign Up\n    \n\n\n\n\n\n\n\nJSON to Excel Converter\n\n\n\n\nCalculators\n\n\n\n\nMaster Codes\n\n\n\n\nE-Invoice Utilities\n\n\n\n\nE-Way Bill Utilities\n\n\n\n\nValidators\n\n\n\n\nAPI Docs\n\n\n\n\n            More Tools\n        \n\n\n\nSearch GSTIN\n    \n\n\n\n\n\nUseful Tools\nTax Payers\n\n                                        ADANI INFRASTRUCTURE AND DEVELOPERS PRIVATE LIMITED",
+  "trade_name": "ADANI INFRASTRUCTURE AND DEVELOPERS PRIVATE LIMITED",
+  "pan": "AAFCA9521J",
+  "registration_date": "-",
+  "constitution": "",
+  "taxpayer_type": "",
+  "status": "",
+  "state": "Haryana",
+  "pin_code": "122001",
+  "cancellation_date": "-",
+  "state_jurisdiction": "",
+  "centre_jurisdiction": "",
+  "nature_of_business": "Not Available",
+  "api_source": "GSTZen",
+  "extracted_on": "2025-11-08T03:58:45.401000",
+  "gst_returns": {
+    "total_returns_filed": 0,
+    "returns_summary": {
+      "total_filings": 0,
+      "return_types": {},
+      "filing_frequency": {},
+      "latest_filing": null,
+      "oldest_filing": null
+    },
+    "detailed_filings": []
+  }
+}

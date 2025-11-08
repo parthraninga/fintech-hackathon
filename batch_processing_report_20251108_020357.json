@@ -1,0 +1,66 @@
+{
+  "batch_summary": {
+    "total_documents": 2,
+    "successful_processed": 1,
+    "failed_processed": 1,
+    "total_processing_time": 149.7875669002533,
+    "average_processing_time": 74.89378345012665,
+    "total_invoice_amount": 154614.0,
+    "total_tax_amount": 23585.24,
+    "unique_suppliers": 1,
+    "validation_passed": 0,
+    "validation_failed": 2,
+    "duplicates_detected": 0,
+    "unique_documents": 1,
+    "document_types": {
+      "B2B_INVOICE": 1
+    },
+    "top_suppliers": [
+      {
+        "name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+        "total_amount": 154614.0,
+        "invoice_count": 1
+      }
+    ],
+    "insights": [
+      "Successfully processed 1/2 documents (50.0%)",
+      "Total invoice value: ₹154,614.00",
+      "Average processing time: 74.89s per document",
+      "Processed invoices from 1 unique suppliers"
+    ]
+  },
+  "individual_results": [
+    {
+      "doc_id": "1",
+      "success": true,
+      "processing_time": 103.94503092765808,
+      "invoice_number": "IMR/25/AEL/003",
+      "supplier_name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+      "total_amount": 154614.0,
+      "validation_passed": false,
+      "is_duplicate": false,
+      "pdf_report_path": null,
+      "errors": []
+    },
+    {
+      "doc_id": "17",
+      "success": false,
+      "processing_time": 44.83155393600464,
+      "invoice_number": "IMR/25/AEL/003",
+      "supplier_name": "INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+      "total_amount": 154614.0,
+      "validation_passed": false,
+      "is_duplicate": null,
+      "pdf_report_path": null,
+      "errors": [
+        "Database storage error: unsupported operand type(s) for -: 'int' and 'NoneType'"
+      ]
+    }
+  ],
+  "timestamp": "2025-11-08T02:03:57.089720",
+  "processing_metadata": {
+    "processor_version": "1.0.0",
+    "database_path": "invoice_management.db",
+    "llm_enabled": true
+  }
+}

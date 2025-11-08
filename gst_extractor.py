@@ -677,6 +677,27 @@ def extract_by_gstin_interactive():
 
 def main():
     """Main function with options"""
+    import sys
+    
+    # Check if GSTIN provided as command line argument
+    if len(sys.argv) > 1:
+        gstin = sys.argv[1].strip().upper()
+        print("GST Taxpayer Details Extractor - GSTZen")
+        print("=" * 50)
+        print(f"🔍 Extracting details for GSTIN: {gstin}")
+        
+        extractor = GSTZenExtractor()
+        details = extractor.extract_from_gstin(gstin)
+        
+        if details:
+            print("✅ Successfully extracted taxpayer details!")
+            filename = extractor.save_to_json(details)
+            print(f"📁 Details saved to: {filename}")
+        else:
+            print("❌ Failed to extract taxpayer details")
+        return
+    
+    # Interactive mode
     print("GST Taxpayer Details Extractor - GSTZen")
     print("=" * 50)
     print()

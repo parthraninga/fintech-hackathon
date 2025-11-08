@@ -1,0 +1,29 @@
+{
+  "gstin": "24AAGCI9537F1ZG",
+  "legal_name": "ISKO ENGINEERING PRIVATE LIMITED",
+  "trade_name": "ISKO ENGINEERING PRIVATE LIMITED",
+  "pan": "AAGCI9537F",
+  "registration_date": "29-Dec-2022",
+  "constitution": "Private Limited Company",
+  "taxpayer_type": "Regular",
+  "status": "Active",
+  "state": "Gujarat",
+  "pin_code": "",
+  "cancellation_date": "-",
+  "state_jurisdiction": "Ghatak 55 (Bharuch)",
+  "centre_jurisdiction": "RANGE-V",
+  "nature_of_business": "Factory / Manufacturing, Supplier of Services, Recipient of Goods or Services, Export, Import, Service Provision",
+  "api_source": "GSTZen",
+  "extracted_on": "2025-11-08T02:31:10.934471",
+  "gst_returns": {
+    "total_returns_filed": 0,
+    "returns_summary": {
+      "total_filings": 0,
+      "return_types": {},
+      "filing_frequency": {},
+      "latest_filing": null,
+      "oldest_filing": null
+    },
+    "detailed_filings": []
+  }
+}
