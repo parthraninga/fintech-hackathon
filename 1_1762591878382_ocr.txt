@@ -1,0 +1,137 @@
+ys —— GST INVOICE
+
+G
+
+sisi. ie PERFECTION
+UW 0 —
+¢ cow 6 we
+IRN - Bed56103e0b002dfcd151996c257a41863b45858 1 6deb 15¢-
+2e4615b9b9957e96
+Ack No. —: 162521701265882 i eo
+Ack Date: 20-Aug-25 : *
+Invoice No.
+
+iSKO ENGINEERING PVT LTD
+PLOT NO.715-716.GIDC PALEJ
+
+PALEJ, DIST - BHARUCH - 392220 Delivery Note
+
+GUJARAT 197
+UDYAM : UDYAM-Gu-24-0086528 (Small/Mfgr)
+GSTIN/UIN: 24AAGCI9537F1ZG
+
+State Name : Gujarat, Code : 24
+
+Consignee (Ship to)
+
+Reference No. & Date.
+SBD/25-26/197 dt. 20-Aug-25
+Buyer's Order No.
+
+5130009715
+Dispatch Doc No.
+
+f CONFIDENTIAL ae
+
+BY ROAD
+
+Bill of Lading/LR-RR No.
+7200 dt. 20-Aug-25
+Terms of Delivery
+
+f CONFIDENTIAL
+
+GSTIN/UIN.
+
+StateName ae os
+S| HSN/SAG Quantity
+No.
+1 BASKET 84049000 6.00 NOS 1,70,632.00 NOS
+OUTPUT CGST
+OUTPUT SGST
+
+ROUND OFF
+
+f CONFIDENTIAL
+
+gobb o2
+
+foo
+Total 6.00 NOS
+Amount Chargeable (in words)
+INR Twelve Lakh Eight Thousand Seventy Five Only
+HSN/SAC Taxable CGST
+
+a Value Rate Amount
+84049000 = —___10,23,792.00 9% ___* 92,141.28
+
+Total 10,23,792.00 92,141.28
+
+(ORIGINAL FOR RECIPIENT)
+
+ISHO ENGINEERING PVT. LTD.
+
+‘Rate per
+
+SGST/UTGST
+Rate Amount ‘
+9% 92,141.28 1,84,282.56
+
+e-Invoice
+
+e-Way Bill No. Dated
+SBD/25-26/197 631955836642 20-Aug-25
+
+Mode/Terms of Payment
+
+30 DAYS
+Other References
+
+Dated
+
+5-Mar-25
+
+Delivery Note Date
+20-Aug-25
+Destination
+
+MUNDRA,KUTCH
+Motor Vehicle No.
+
+GJ27TF1809 ~~
+
+Amount
+10,23,792.00
+92,141.28
+
+92,141.28
+0.44
+
+% 12,08,075.00
+E.&O.E
+
+Total
+Tax Amount
+
+92,141.28 1,84,282.56
+
+Tax Amount (in words) : INR One Lakh Eighty Four Thousand Two Hundred Eighty Two and Fifty Six paise Only
+
+Company's Bank Details
+Bank Name
+A/c No.
+
+Branch & IFS Code :
+
+Declaration
+MARINE POLICY NO: - 6520020289
+MSME NO :- UDYAM-GJ-24-0086528
+
+SUBJECT TO VADODARA JURISDICTION
+
+This is a Computer Generated Invoice
+
+: ICICI BANK CC AVC - 773251000002
+: 773251000002
+DARBAR CHOKDI BRANCH &
+

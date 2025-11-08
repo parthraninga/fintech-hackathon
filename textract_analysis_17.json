@@ -1,0 +1,264 @@
+{
+  "file_info": {
+    "filename": "17.pdf",
+    "file_size_bytes": 915677,
+    "analyzed_at": "2025-11-08T12:12:06.211826"
+  },
+  "form_analysis": {
+    "form_fields": [
+      {
+        "key": "Fuel",
+        "value": "",
+        "confidence": 100.0
+      },
+      {
+        "key": "e-MAIL",
+        "value": "CONFIDENTIAL",
+        "confidence": 91.65669250488281
+      },
+      {
+        "key": "Taxable Amount (INR\\)",
+        "value": "131029",
+        "confidence": 95.30025482177734
+      },
+      {
+        "key": "Vendor Code",
+        "value": "275050",
+        "confidence": 95.46916198730469
+      },
+      {
+        "key": "CIN:",
+        "value": "U08999JH2023PTC020132",
+        "confidence": 94.97047424316406
+      },
+      {
+        "key": "Total Amount (INR)",
+        "value": "₹ 1,54,614",
+        "confidence": 95.37671661376953
+      },
+      {
+        "key": "Declaration",
+        "value": "We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.",
+        "confidence": 92.73023986816406
+      },
+      {
+        "key": "Invoice No.",
+        "value": "IMR/25/AEL/003",
+        "confidence": 95.40199279785156
+      },
+      {
+        "key": "GSTIN:",
+        "value": "20AAHCI0488C1Z1",
+        "confidence": 95.31761932373047
+      },
+      {
+        "key": "Date:",
+        "value": "",
+        "confidence": 84.26420593261719
+      },
+      {
+        "key": "PO Date",
+        "value": "",
+        "confidence": 92.76764678955078
+      },
+      {
+        "key": "Tel.:",
+        "value": "0651-3591618 / 9431105008",
+        "confidence": 94.42044830322266
+      },
+      {
+        "key": "PO #",
+        "value": "8130026078",
+        "confidence": 95.34379577636719
+      },
+      {
+        "key": "Bill To",
+        "value": "CONFIDENTIAL",
+        "confidence": 65.55168151855469
+      },
+      {
+        "key": "DIRECTOR",
+        "value": "",
+        "confidence": 58.91872787475586
+      },
+      {
+        "key": "Ship To / Consignee:",
+        "value": "Same As Bill To",
+        "confidence": 63.26178741455078
+      },
+      {
+        "key": "Dated",
+        "value": "31-08-25",
+        "confidence": 95.26515197753906
+      },
+      {
+        "key": "Fuel Rate:",
+        "value": "102.38)",
+        "confidence": 93.00350189208984
+      },
+      {
+        "key": "Total Amount (In Words)",
+        "value": "One Lakh Fifty Four Thousand Six Hundred & Fourteen Only",
+        "confidence": 95.27800750732422
+      },
+      {
+        "key": "For INPRAVIA MINING RESOURCES PRIVATE LIMITED",
+        "value": "INPRAVIA MINING RESOURCES PRIVATE LIMITED R Authorised Signatory",
+        "confidence": 85.14503479003906
+      },
+      {
+        "key": "(Total KM Run:342,",
+        "value": "",
+        "confidence": 80.0
+      },
+      {
+        "key": "IGST @18%",
+        "value": "23,585.24",
+        "confidence": 87.22954559326172
+      },
+      {
+        "key": "* SUBJECT TO RANCHI JURISDICTION",
+        "value": "* This is a Computer Generated Invoice Needs No Signature.",
+        "confidence": 84.56544494628906
+      },
+      {
+        "key": "Taxable Amount (In Words) INR",
+        "value": "One Lakh Thirty One Thousand & Twenty Nine Only",
+        "confidence": 95.28605651855469
+      },
+      {
+        "key": "Digitally signed by",
+        "value": "MITHILESH KUMAR SINGH 2025.09.08 16:56:04 +05'30'",
+        "confidence": 57.64644241333008
+      }
+    ],
+    "total_fields": 25,
+    "fields_with_values": 20
+  },
+  "table_analysis": {
+    "tables": [
+      {
+        "rows": [
+          [
+            "SI. No.",
+            "Description of Services",
+            "Service #",
+            "HSN/SAC",
+            "Quantity (In MT)",
+            "Rate",
+            "Taxable Amount (INR)"
+          ],
+          [
+            "1",
+            "Ambulance (24/7)",
+            "170002947",
+            "999315",
+            "26",
+            "38827",
+            "38827"
+          ],
+          [
+            "2",
+            "Operator 1",
+            "190002951",
+            "998519",
+            "26",
+            "22827",
+            "22827"
+          ],
+          [
+            "3",
+            "Operator 2",
+            "190002951",
+            "998519",
+            "26",
+            "22827",
+            "22827"
+          ],
+          [
+            "4",
+            "Technician 1",
+            "190002421",
+            "998519",
+            "15",
+            "24927",
+            "14381"
+          ],
+          [
+            "5",
+            "Technician 2",
+            "190002421",
+            "998519",
+            "19",
+            "24927",
+            "18216"
+          ],
+          [
+            "6",
+            "Technician 3",
+            "190002421",
+            "998519",
+            "10",
+            "24927",
+            "9587"
+          ],
+          [
+            "7",
+            "Fuel @8KM Per Littre (Total KM Run:342, Fuel Rate: 102.38)",
+            "170002715",
+            "998519",
+            "-",
+            "-",
+            "4364"
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "Taxable",
+            "Amount (INR\\)",
+            "131029"
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "IGST @18%",
+            "23,585.24"
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "Total",
+            "Amount (INR)",
+            "₹ 1,54,614"
+          ]
+        ],
+        "row_count": 11,
+        "column_count": 7,
+        "confidence": 99.951171875
+      }
+    ],
+    "total_tables": 1,
+    "total_cells": 77
+  },
+  "layout_analysis": {
+    "layout_elements": [],
+    "total_elements": 0,
+    "element_types": []
+  },
+  "summary": {
+    "document_type": "Invoice/Bill",
+    "confidence_score": 87.37,
+    "key_findings": [
+      "Found 25 form fields",
+      "Found 1 tables"
+    ],
+    "recommended_actions": []
+  }
+}

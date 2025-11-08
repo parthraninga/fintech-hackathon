@@ -1051,3 +1051,73 @@ Do not generate or estimate any financial figures that are not in the actual que
 def create_financial_chatbot(**kwargs) -> FinancialChatbot:
     """Create and return a configured financial chatbot instance"""
     return FinancialChatbot(**kwargs)
+
+# CLI Interface for direct usage
+def main():
+    """Interactive CLI interface for the Financial Chatbot"""
+    print("🚀 Advanced Financial Chatbot with LangGraph")
+    print("=" * 50)
+    print("🤖 Initializing sophisticated financial analysis system...")
+    
+    try:
+        # Initialize the advanced chatbot
+        chatbot = FinancialChatbot(
+            model_name="gemini-2.5-flash",
+            db_path="/Users/admin/gst-extractor/invoice_management.db",
+            memory_path="/Users/admin/gst-extractor/chat_memory.db"
+        )
+        
+        session_id = f"cli_session_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        print(f"💬 Session ID: {session_id}")
+        print("\n🎯 Ready! I can help with:")
+        print("📊 Complex invoice analysis and trends")
+        print("🏢 Company research with GST validation")
+        print("📦 Product analysis and HSN code insights")
+        print("💰 Advanced financial reporting and statistics")
+        print("🔍 Multi-table database queries")
+        print("📈 Time-series analysis and forecasting")
+        print("\nType 'quit' or 'exit' to end the session.")
+        print("-" * 50)
+        
+        while True:
+            try:
+                # Get user input
+                user_input = input("\n💭 Your question: ").strip()
+                
+                if user_input.lower() in ['quit', 'exit', 'bye']:
+                    print("\n👋 Goodbye! Chat session ended.")
+                    break
+                
+                if not user_input:
+                    print("⚠️ Please enter a question.")
+                    continue
+                
+                # Process with advanced chatbot
+                print("\n🤖 Processing your complex query...")
+                start_time = datetime.now()
+                
+                response = chatbot.chat(user_input, session_id)
+                
+                processing_time = (datetime.now() - start_time).total_seconds()
+                
+                print(f"\n🎯 Response (processed in {processing_time:.2f}s):")
+                print("-" * 50)
+                print(response)
+                print("-" * 50)
+                
+            except KeyboardInterrupt:
+                print("\n\n👋 Chat interrupted. Goodbye!")
+                break
+            except Exception as e:
+                print(f"\n❌ Error: {str(e)}")
+                print("Please try a different question.")
+        
+        # Cleanup
+        chatbot.close()
+        
+    except Exception as e:
+        print(f"💥 Failed to initialize chatbot: {str(e)}")
+        print("Please check your database connections and API keys.")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,72 @@
+2025-11-08 13:29:26,152 - FinancialChatbot - INFO - 🚀 Starting Financial Chatbot Interface
+2025-11-08 13:29:26,152 - FinancialChatbot - INFO - Arguments received: ['/Users/admin/gst-extractor/chatbot_interface.py', 'hi', 'chat_1762588635455']
+2025-11-08 13:29:26,152 - FinancialChatbot - INFO - 📝 Processing query: 'hi' for session: chat_1762588635455
+2025-11-08 13:29:26,152 - FinancialChatbot - INFO - 🤖 Importing FinancialChatbot...
+2025-11-08 13:29:26,934 - FinancialChatbot - INFO - 🔧 Initializing FinancialChatbot with Gemini model...
+2025-11-08 13:29:26,971 - financial_chatbot - INFO - ✅ Financial chatbot initialized successfully with gemini-2.5-flash
+2025-11-08 13:29:26,971 - FinancialChatbot - INFO - 💬 Processing chat request...
+2025-11-08 13:29:26,972 - financial_chatbot - INFO - 📊 Classified query as: general_query (complexity: 0, patterns: [])
+2025-11-08 13:29:27,804 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 32.462194698s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 32
+}
+].
+2025-11-08 13:29:30,260 - financial_chatbot - ERROR - ❌ AI generation error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 30.055264259s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, retry_delay {
+  seconds: 30
+}
+]
+2025-11-08 13:29:30,263 - FinancialChatbot - INFO - ⚡ Chat processing completed in 3.292 seconds
+2025-11-08 13:29:30,263 - FinancialChatbot - INFO - ✅ Response generated successfully: 155 characters
+2025-11-08 13:29:30,263 - FinancialChatbot - INFO - 🎯 Query type classified as: financial_query (confidence: 0.95)
+2025-11-08 13:29:30,263 - FinancialChatbot - INFO - 🔒 Chatbot connections closed successfully
+2025-11-08 13:30:01,982 - FinancialChatbot - INFO - 🚀 Starting Financial Chatbot Interface
+2025-11-08 13:30:01,982 - FinancialChatbot - INFO - Arguments received: ['/Users/admin/gst-extractor/chatbot_interface.py', 'list of all the companies', 'chat_1762588635455']
+2025-11-08 13:30:01,982 - FinancialChatbot - INFO - 📝 Processing query: 'list of all the companies' for session: chat_1762588635455
+2025-11-08 13:30:01,982 - FinancialChatbot - INFO - 🤖 Importing FinancialChatbot...
+2025-11-08 13:30:02,703 - FinancialChatbot - INFO - 🔧 Initializing FinancialChatbot with Gemini model...
+2025-11-08 13:30:02,740 - financial_chatbot - INFO - ✅ Financial chatbot initialized successfully with gemini-2.5-flash
+2025-11-08 13:30:02,740 - FinancialChatbot - INFO - 💬 Processing chat request...
+2025-11-08 13:30:02,740 - financial_chatbot - INFO - 📊 Classified query as: general_query (complexity: 0, patterns: [])
+2025-11-08 13:30:05,623 - FinancialChatbot - INFO - ⚡ Chat processing completed in 2.883 seconds
+2025-11-08 13:30:05,623 - FinancialChatbot - INFO - ✅ Response generated successfully: 591 characters
+2025-11-08 13:30:05,623 - FinancialChatbot - INFO - 🎯 Query type classified as: financial_query (confidence: 0.95)
+2025-11-08 13:30:05,623 - FinancialChatbot - INFO - 🔒 Chatbot connections closed successfully
+2025-11-08 13:35:28,071 - FinancialChatbot - INFO - 🚀 Starting Financial Chatbot Interface
+2025-11-08 13:35:28,071 - FinancialChatbot - INFO - Arguments received: ['chatbot_interface.py']

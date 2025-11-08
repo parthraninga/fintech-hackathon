@@ -334,9 +334,10 @@ class TextractPDFAnalyzer:
     def save_results(self, results: Dict[str, Any], output_path: str = None) -> str:
         """Save analysis results to JSON file"""
         if output_path is None:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = results['file_info']['filename'].replace('.pdf', '')
-            output_path = f"textract_analysis_{filename}_{timestamp}.json"
+            # Clean the filename - remove special characters and keep it simple
+            clean_filename = ''.join(c for c in filename if c.isalnum() or c in '_-')
+            output_path = f"textract_analysis_{clean_filename}.json"
         
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)

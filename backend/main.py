@@ -15,7 +15,7 @@ from config import settings
 from database import init_db
 
 # Import routers
-from routers import auth, invoices, batches, dashboard, chat, websockets
+from routers import auth, invoices, batches, dashboard, chat, websockets, simple_ocr
 
 # Configure logging
 logging.basicConfig(
@@ -148,6 +148,7 @@ app.include_router(batches.router, prefix="/api/batches", tags=["Batches"])
 app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])
 app.include_router(chat.router, prefix="/api/chat", tags=["Chat"])
 app.include_router(websockets.router, prefix="/ws", tags=["WebSocket"])
+app.include_router(simple_ocr.router, prefix="/api", tags=["SimpleOCR"])
 
 
 if __name__ == "__main__":

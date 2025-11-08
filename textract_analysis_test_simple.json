@@ -1,0 +1,22 @@
+{
+  "file_info": {
+    "filename": "test_simple.pdf",
+    "file_size_bytes": 5,
+    "analyzed_at": "2025-11-08T11:12:33.742487"
+  },
+  "form_analysis": {
+    "error": "An error occurred (UnsupportedDocumentException) when calling the AnalyzeDocument operation: Request has unsupported document format"
+  },
+  "table_analysis": {
+    "error": "An error occurred (UnsupportedDocumentException) when calling the AnalyzeDocument operation: Request has unsupported document format"
+  },
+  "layout_analysis": {
+    "message": "Layout analysis requires advanced Textract features"
+  },
+  "summary": {
+    "document_type": "Unknown",
+    "confidence_score": 0,
+    "key_findings": [],
+    "recommended_actions": []
+  }
+}

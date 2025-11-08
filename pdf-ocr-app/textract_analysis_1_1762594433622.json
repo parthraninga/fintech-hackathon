@@ -1,0 +1,418 @@
+{
+  "file_info": {
+    "filename": "1_1762594433622.pdf",
+    "file_size_bytes": 909844,
+    "analyzed_at": "2025-11-08T15:03:53.868936"
+  },
+  "form_analysis": {
+    "form_fields": [
+      {
+        "key": "SI No.",
+        "value": "1",
+        "confidence": 97.04342651367188
+      },
+      {
+        "key": "Invoice No.",
+        "value": "SBD/25-26/197",
+        "confidence": 94.26005554199219
+      },
+      {
+        "key": "State Name",
+        "value": "Gujarat,",
+        "confidence": 94.49749755859375
+      },
+      {
+        "key": "Delivery Note",
+        "value": "197",
+        "confidence": 94.58483123779297
+      },
+      {
+        "key": "MSME NO",
+        "value": "UDYAM-GJ-24-0086528",
+        "confidence": 88.8617172241211
+      },
+      {
+        "key": "Total Tax Amount",
+        "value": "1,84,282.56",
+        "confidence": 90.9813461303711
+      },
+      {
+        "key": "Bill of Lading/LR-RR No.",
+        "value": "7200 dt. 20-Aug-25",
+        "confidence": 94.81161499023438
+      },
+      {
+        "key": "GSTIN/UIN:",
+        "value": "24AAGCI9537F1ZG",
+        "confidence": 94.70970916748047
+      },
+      {
+        "key": "HSN/SAC",
+        "value": "84049000",
+        "confidence": 93.85350036621094
+      },
+      {
+        "key": "Dated",
+        "value": "5-Mar-25",
+        "confidence": 92.63207244873047
+      },
+      {
+        "key": "IRN :",
+        "value": "8ed56103e0b002dfcd15f996c257a41863b4585816dcb15 2e4615b9b9957e96",
+        "confidence": 89.33977508544922
+      },
+      {
+        "key": "MARINE POLICY NO :",
+        "value": "6520020289",
+        "confidence": 89.94906616210938
+      },
+      {
+        "key": "Tax Amount (in words)",
+        "value": "INR One Lakh Eighty Four Thousand Two Hundred Eighty Two and Fifty Six paise Only",
+        "confidence": 93.90459442138672
+      },
+      {
+        "key": "Dispatched through",
+        "value": "BY ROAD",
+        "confidence": 95.11381530761719
+      },
+      {
+        "key": "Destination",
+        "value": "MUNDRA, KUTCH",
+        "confidence": 94.51737213134766
+      },
+      {
+        "key": "Quantity",
+        "value": "6.00 NOS",
+        "confidence": 94.44434356689453
+      },
+      {
+        "key": "Delivery Note Date",
+        "value": "20-Aug-25",
+        "confidence": 95.24049377441406
+      },
+      {
+        "key": "Bank Name",
+        "value": "ICICI BANK CC 773251000002",
+        "confidence": 94.37979125976562
+      },
+      {
+        "key": "HSN/SAC",
+        "value": "84049000",
+        "confidence": 88.42265319824219
+      },
+      {
+        "key": "Branch & IFS Code",
+        "value": "DARBAR CHOKDI BRANCH & ICIC0007732 for ISKO ENGINEERING",
+        "confidence": 89.54080963134766
+      },
+      {
+        "key": "e-Way Bill No.",
+        "value": "631955836642",
+        "confidence": 94.39404296875
+      },
+      {
+        "key": "Dated",
+        "value": "20-Aug-25",
+        "confidence": 93.9236831665039
+      },
+      {
+        "key": "per",
+        "value": "NOS",
+        "confidence": 94.01766967773438
+      },
+      {
+        "key": "SGST/UTGST Rate Amount",
+        "value": "92,141.28",
+        "confidence": 90.09982299804688
+      },
+      {
+        "key": "Other References",
+        "value": "",
+        "confidence": 88.70848083496094
+      },
+      {
+        "key": "Reference No. & Date.",
+        "value": "SBD/25-26/197 dt. 20-Aug-25",
+        "confidence": 94.93809509277344
+      },
+      {
+        "key": "Rate",
+        "value": "1,70,632.00",
+        "confidence": 94.6692886352539
+      },
+      {
+        "key": "Buyer's Order No.",
+        "value": "5130009715",
+        "confidence": 95.2432861328125
+      },
+      {
+        "key": "UDYAM :",
+        "value": "UDYAM-GJ-24-0086528 (Small/Mfgr)",
+        "confidence": 94.51614379882812
+      },
+      {
+        "key": "Code",
+        "value": "24",
+        "confidence": 93.69291687011719
+      },
+      {
+        "key": "Motor Vehicle No.",
+        "value": "GJ27TF1809",
+        "confidence": 95.0595474243164
+      },
+      {
+        "key": "Ack Date",
+        "value": "20-Aug-25",
+        "confidence": 95.03713989257812
+      },
+      {
+        "key": "Mode/Terms of Payment",
+        "value": "30 DAYS",
+        "confidence": 94.80735778808594
+      },
+      {
+        "key": "Total",
+        "value": "10,23,792.00 92,141.28 92,141.28 1,84,282.56",
+        "confidence": 89.13921356201172
+      },
+      {
+        "key": "Amount Chargeable (in words)",
+        "value": "INR Twelve Lakh Eight Thousand Seventy Five Only",
+        "confidence": 81.57398986816406
+      },
+      {
+        "key": "Amount",
+        "value": "10,23,792.00",
+        "confidence": 94.37769317626953
+      },
+      {
+        "key": "Dispatch Doc No.",
+        "value": "NA",
+        "confidence": 95.16915893554688
+      },
+      {
+        "key": "Taxable Value",
+        "value": "10,23,792.00",
+        "confidence": 93.79289245605469
+      },
+      {
+        "key": "Ack No. :",
+        "value": "162521701265882",
+        "confidence": 95.04708862304688
+      },
+      {
+        "key": "A/c No.",
+        "value": "773251000002",
+        "confidence": 80.0
+      },
+      {
+        "key": "Terms of Delivery",
+        "value": "",
+        "confidence": 53.53274917602539
+      },
+      {
+        "key": "OUTPUT SGST",
+        "value": "92,141.28",
+        "confidence": 94.40217590332031
+      },
+      {
+        "key": "Rate",
+        "value": "9%",
+        "confidence": 93.137451171875
+      },
+      {
+        "key": "OUTPUT CGST",
+        "value": "92,141.28",
+        "confidence": 94.41531372070312
+      },
+      {
+        "key": "ROUND OFF",
+        "value": "0.44",
+        "confidence": 94.63471984863281
+      },
+      {
+        "key": "CGST Amount",
+        "value": "92,141.28",
+        "confidence": 88.76245880126953
+      },
+      {
+        "key": "Total",
+        "value": "6.00 NOS ₹ 12,08,075.00",
+        "confidence": 94.4541015625
+      },
+      {
+        "key": "PLOT",
+        "value": "NO.715-716.GIDC",
+        "confidence": 65.80272674560547
+      },
+      {
+        "key": "GSTIN/UIN State Name",
+        "value": "",
+        "confidence": 54.049407958984375
+      },
+      {
+        "key": "SUBJECT TO VADODARA JURISDICTION",
+        "value": "",
+        "confidence": 48.81245040893555
+      },
+      {
+        "key": "A/C -",
+        "value": "",
+        "confidence": 49.13652801513672
+      }
+    ],
+    "total_fields": 51,
+    "fields_with_values": 46
+  },
+  "table_analysis": {
+    "tables": [
+      {
+        "rows": [
+          [
+            "IRN :",
+            "8ed56103e0b002dfcd15f996c257a41863b4585816dcb15 2e4615b9b9957e96"
+          ],
+          [
+            "Ack No. :",
+            "162521701265882"
+          ],
+          [
+            "Ack Date :",
+            "20-Aug-25"
+          ]
+        ],
+        "row_count": 3,
+        "column_count": 2,
+        "confidence": 96.484375
+      },
+      {
+        "rows": [
+          [
+            "GSTIN/UIN State Name",
+            "CONFIDENTIAL",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SI No.",
+            "",
+            "HSN/SAC",
+            "Quantity",
+            "Rate",
+            "per",
+            "Amount"
+          ],
+          [
+            "1 BASKET",
+            "",
+            "84049000",
+            "6.00 NOS",
+            "1,70,632.00",
+            "NOS",
+            "10,23,792.00"
+          ]
+        ],
+        "row_count": 3,
+        "column_count": 7,
+        "confidence": 77.880859375
+      },
+      {
+        "rows": [
+          [
+            "OUTPUT CGST",
+            "",
+            "92,141.28"
+          ],
+          [
+            "OUTPUT SGST",
+            "",
+            "92,141.28"
+          ],
+          [
+            "ROUND OFF",
+            "",
+            "0.44"
+          ]
+        ],
+        "row_count": 3,
+        "column_count": 3,
+        "confidence": 95.556640625
+      },
+      {
+        "rows": [
+          [
+            "Total",
+            "6.00 NOS",
+            "₹ 12,08,075.00"
+          ]
+        ],
+        "row_count": 1,
+        "column_count": 3,
+        "confidence": 71.826171875
+      },
+      {
+        "rows": [
+          [
+            "HSN/SAC",
+            "Taxable",
+            "",
+            "CGST",
+            "",
+            "SGST/UTGST",
+            "Total"
+          ],
+          [
+            "",
+            "Value",
+            "Rate",
+            "Amount",
+            "Rate",
+            "Amount",
+            "Tax Amount"
+          ],
+          [
+            "84049000",
+            "10,23,792.00",
+            "9%",
+            "92,141.28",
+            "9%",
+            "92,141.28",
+            "1,84,282.56"
+          ],
+          [
+            "Total",
+            "10,23,792.00",
+            "",
+            "92,141.28",
+            "",
+            "92,141.28",
+            "1,84,282.56"
+          ]
+        ],
+        "row_count": 4,
+        "column_count": 7,
+        "confidence": 99.21875
+      }
+    ],
+    "total_tables": 5,
+    "total_cells": 67
+  },
+  "layout_analysis": {
+    "layout_elements": [],
+    "total_elements": 0,
+    "element_types": []
+  },
+  "summary": {
+    "document_type": "Invoice/Bill",
+    "confidence_score": 89.03,
+    "key_findings": [
+      "Found 51 form fields",
+      "Found 5 tables"
+    ],
+    "recommended_actions": []
+  }
+}

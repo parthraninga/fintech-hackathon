@@ -1,0 +1,313 @@
+{
+  "file_info": {
+    "filename": "3P1400001#5001866978_1762590212745.pdf",
+    "file_size_bytes": 435469,
+    "analyzed_at": "2025-11-08T13:53:32.994920"
+  },
+  "form_analysis": {
+    "form_fields": [
+      {
+        "key": "Round oft",
+        "value": "20979",
+        "confidence": 60.259521484375
+      },
+      {
+        "key": "Website :",
+        "value": "www.omflexprinting.com",
+        "confidence": 82.8813247680664
+      },
+      {
+        "key": "Invoice No.",
+        "value": "795 / 2025-26",
+        "confidence": 93.74909973144531
+      },
+      {
+        "key": "Date :",
+        "value": "",
+        "confidence": 92.48603820800781
+      },
+      {
+        "key": "GSTIN :",
+        "value": "06ANSPK3486H1ZI",
+        "confidence": 94.04987335205078
+      },
+      {
+        "key": "Auth. Signatory",
+        "value": "",
+        "confidence": 86.77217102050781
+      },
+      {
+        "key": "Email",
+        "value": "omflexprinting315@gmail.com",
+        "confidence": 85.15071105957031
+      },
+      {
+        "key": "GSTIN No.",
+        "value": "06AAFCA9521J1ZM",
+        "confidence": 94.79641723632812
+      },
+      {
+        "key": "Add. :",
+        "value": "Krishan Nagar, Basai Road, Gurugram (Haryana) 122001",
+        "confidence": 92.61400604248047
+      },
+      {
+        "key": "P.O.No.",
+        "value": "",
+        "confidence": 90.31373596191406
+      },
+      {
+        "key": "Dated",
+        "value": "02/05/2025",
+        "confidence": 94.6842041015625
+      },
+      {
+        "key": "M/s To",
+        "value": "Adani Intra & Der pvt. ltd. Sector- 2, Gwal Panari Gurugram",
+        "confidence": 89.322998046875
+      },
+      {
+        "key": "M. :",
+        "value": "9211724305 9211724309",
+        "confidence": 94.13117980957031
+      },
+      {
+        "key": "Grand Total (Inclusive of GST)",
+        "value": "20979.4",
+        "confidence": 91.47742462158203
+      },
+      {
+        "key": "Amount in words",
+        "value": "Rupees Twenty",
+        "confidence": 80.0
+      },
+      {
+        "key": "Deals In All Kinds of :",
+        "value": "Flex Printing, Offset Printing, Digital Printing, Etc.",
+        "confidence": 94.31010437011719
+      },
+      {
+        "key": "Received By",
+        "value": "Juny.",
+        "confidence": 71.37307739257812
+      },
+      {
+        "key": "For Om Flex Printing",
+        "value": "AMEKUMAS",
+        "confidence": 83.3856201171875
+      },
+      {
+        "key": "Total Rs.",
+        "value": "17830 15747 1574.7",
+        "confidence": 93.678955078125
+      },
+      {
+        "key": "3.",
+        "value": "Our responsibility ceases as soon as goods leave our works shop.",
+        "confidence": 71.8476333618164
+      },
+      {
+        "key": "4.",
+        "value": "All Disputes subject to Gurugram Jurisdiction",
+        "confidence": 70.83741760253906
+      }
+    ],
+    "total_fields": 21,
+    "fields_with_values": 18
+  },
+  "table_analysis": {
+    "tables": [
+      {
+        "rows": [
+          [
+            "Sr.",
+            "",
+            "HSN/SAC",
+            "",
+            "",
+            "",
+            "",
+            "CGST",
+            "",
+            "SGST",
+            "",
+            "IGST"
+          ],
+          [
+            "No.",
+            "PARTICULARS",
+            "CODE",
+            "QTY.",
+            "RATE",
+            "AMOUNT",
+            "Rate %",
+            "Rs.",
+            "Rate %",
+            "Rs.",
+            "Rate %",
+            "Rs."
+          ],
+          [
+            "",
+            "Sandwich Board Au Digital Print with Stud.",
+            "7318",
+            "04 pas",
+            "750",
+            "3000",
+            "9%",
+            "270",
+            "9%",
+            "270",
+            "1",
+            "-"
+          ],
+          [
+            "2",
+            "Sandwich Boand A3 Disital Print with Stud.",
+            "7318",
+            "04 Pas",
+            "1100",
+            "4400",
+            "9%",
+            "396",
+            "9%",
+            "396",
+            "1",
+            "I"
+          ],
+          [
+            "3",
+            "vinyl Print with ACP Sheet 3mm 3'x4'-12",
+            "3920",
+            "03 pas 3659.02",
+            "170 per 59.6",
+            "6120",
+            "9%",
+            "550.8",
+            "9%",
+            "550.8",
+            "1",
+            "1 +"
+          ],
+          [
+            "",
+            "star Fiex Print 3x5-15 59th",
+            "3921",
+            "02 pas",
+            "17Pm Sq.tr",
+            "510",
+            "9%",
+            "us.9",
+            "9%",
+            "45.9",
+            "-",
+            "I"
+          ],
+          [
+            "4",
+            "Badge Print with safety Pin",
+            "4821",
+            "300 phs",
+            "06",
+            "1800",
+            "9%",
+            "162 60",
+            "9% 6%",
+            "162 60",
+            "-",
+            "I"
+          ],
+          [
+            "L",
+            "Flage print 3x2'",
+            "5907",
+            "01",
+            "1000",
+            "1000",
+            "6%",
+            "",
+            "",
+            "",
+            "rastructure",
+            "She Society"
+          ],
+          [
+            "73",
+            "Transport charge",
+            "",
+            "",
+            "",
+            "1000",
+            "9%",
+            "90",
+            "9%",
+            "90",
+            "NWART MDP",
+            ""
+          ],
+          [
+            "Amount",
+            "in words : Rupees Twenty",
+            "-",
+            "",
+            "",
+            "-",
+            "",
+            "1",
+            "",
+            "1",
+            "",
+            "05/08/2025 2:00"
+          ],
+          [
+            "",
+            "thousand Nine Hundred",
+            "",
+            "Total Rs.",
+            "",
+            "17830",
+            "",
+            "15747",
+            "",
+            "1574.7",
+            "",
+            ""
+          ],
+          [
+            "",
+            "Nine only",
+            "Grand",
+            "Total (Inclusive",
+            "of GST)",
+            "20979.4",
+            "",
+            "Round",
+            "oft",
+            "",
+            "20979",
+            ""
+          ]
+        ],
+        "row_count": 12,
+        "column_count": 12,
+        "confidence": 100.0
+      }
+    ],
+    "total_tables": 1,
+    "total_cells": 144
+  },
+  "layout_analysis": {
+    "layout_elements": [],
+    "total_elements": 0,
+    "element_types": []
+  },
+  "summary": {
+    "document_type": "Invoice/Bill",
+    "confidence_score": 86.1,
+    "key_findings": [
+      "Found 21 form fields",
+      "Found 1 tables"
+    ],
+    "recommended_actions": []
+  }
+}
