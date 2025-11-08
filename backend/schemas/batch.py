@@ -39,6 +39,7 @@ class BatchStats(BaseModel):
 class BatchResponse(BatchBase):
     """Schema for batch response"""
     id: int
+    batch_number: str
     status: BatchStatus
     total_invoices: int
     processed_count: int

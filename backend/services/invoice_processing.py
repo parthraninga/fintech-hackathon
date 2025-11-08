@@ -31,12 +31,31 @@ class InvoiceProcessingService:
         self.tesseract_script = "/Users/admin/gst-extractor/tesseract_ocr.py"
         self.results_dir = "/Users/admin/gst-extractor/json-results"
         
+        # Processing timeout configuration (60 seconds)
+        self.PROCESSING_TIMEOUT = 60
+        self.HEARTBEAT_INTERVAL = 5  # Send heartbeat every 5 seconds
+        
+        # Processing steps for detailed tracking
+        self.PROCESSING_STEPS = {
+            "INIT": {"name": "Initializing", "description": "Setting up processing environment"},
+            "TEXTRACT_PREP": {"name": "Textract Preparation", "description": "Preparing AWS Textract analysis"},
+            "TEXTRACT_RUNNING": {"name": "Textract Analysis", "description": "Running AWS Textract OCR"},
+            "TEXTRACT_COMPLETE": {"name": "Textract Complete", "description": "AWS Textract analysis finished"},
+            "TESSERACT_PREP": {"name": "Tesseract Preparation", "description": "Preparing Tesseract OCR"},
+            "TESSERACT_RUNNING": {"name": "Tesseract Analysis", "description": "Running Tesseract OCR"},
+            "TESSERACT_COMPLETE": {"name": "Tesseract Complete", "description": "Tesseract OCR finished"},
+            "FINALIZING": {"name": "Finalizing", "description": "Saving results and updating database"},
+            "COMPLETED": {"name": "Completed", "description": "All processing completed successfully"},
+            "FAILED": {"name": "Failed", "description": "Processing failed or timed out"},
+            "TIMEOUT": {"name": "Timeout", "description": "Processing exceeded time limit (60s)"}
+        }
+        
         # Create results directory if it doesn't exist
         os.makedirs(self.results_dir, exist_ok=True)
     
     async def process_invoice(self, invoice_id: int, db: Session = None) -> Dict[str, Any]:
         """
-        Process a single invoice with both OCR methods
+        Process a single invoice with both OCR methods with timeout and detailed step tracking
         
         Args:
             invoice_id: ID of the invoice to process
@@ -49,6 +68,55 @@ class InvoiceProcessingService:
             db = next(get_db())
         
         try:
+            # Wrap the actual processing with timeout
+            return await asyncio.wait_for(
+                self._process_invoice_with_steps(invoice_id, db),
+                timeout=self.PROCESSING_TIMEOUT
+            )
+        except asyncio.TimeoutError:
+            print(f"⏰ Processing timeout after {self.PROCESSING_TIMEOUT}s for invoice {invoice_id}")
+            
+            # Update invoice status to failed
+            invoice = db.query(Invoice).filter(Invoice.id == invoice_id).first()
+            if invoice:
+                invoice.status = InvoiceStatus.ERROR
+                invoice.current_stage = AgentStage.ERROR
+                db.commit()
+            
+            # Send timeout notification
+            await self._send_step_update(invoice_id, "TIMEOUT", {
+                "timeout_duration": self.PROCESSING_TIMEOUT,
+                "reason": "Processing exceeded maximum time limit"
+            })
+            
+            return {
+                "invoice_id": invoice_id,
+                "status": "timeout",
+                "error": f"Processing timed out after {self.PROCESSING_TIMEOUT} seconds",
+                "timestamp": datetime.now().isoformat()
+            }
+        except Exception as e:
+            print(f"❌ Processing failed for invoice {invoice_id}: {e}")
+            
+            # Send error update via WebSocket
+            await self._send_step_update(invoice_id, "FAILED", {
+                "error": str(e)
+            })
+            
+            return {
+                "invoice_id": invoice_id,
+                "status": "failed",
+                "error": str(e),
+                "timestamp": datetime.now().isoformat()
+            }
+    
+    async def _process_invoice_with_steps(self, invoice_id: int, db: Session) -> Dict[str, Any]:
+        """
+        Internal processing method with detailed step tracking
+        """
+            # STEP 1: Initialize processing
+            await self._send_step_update(invoice_id, "INIT")
+            
             # Get invoice from database
             invoice = db.query(Invoice).filter(Invoice.id == invoice_id).first()
             if not invoice:
@@ -58,18 +126,6 @@ class InvoiceProcessingService:
             invoice.status = InvoiceStatus.PROCESSING
             invoice.current_stage = AgentStage.OCR_EXTRACTION
             db.commit()
-            
-            # Send WebSocket update: Processing started
-            await self._send_processing_update(invoice_id, {
-                "type": "processing_started",
-                "invoice_id": invoice_id,
-                "filename": invoice.filename,
-                "status": "Processing started",
-                "timestamp": datetime.now().isoformat()
-            })
-            
-            # Also send batch update
-            await self._send_batch_progress_update(invoice.batch_id, db)
             
             print(f"🚀 Starting processing for invoice {invoice_id}: {invoice.filename}")
             
@@ -85,78 +141,83 @@ class InvoiceProcessingService:
                 "textract_result": None,
                 "tesseract_result": None,
                 "timing": {},
-                "errors": []
+                "errors": [],
+                "steps_completed": []
             }
             
-            # Run Textract OCR with timing
-            print(f"📄 Running Textract analysis...")
-            await self._send_processing_update(invoice_id, {
-                "type": "textract_started",
-                "invoice_id": invoice_id,
-                "status": "Running AWS Textract analysis...",
-                "timestamp": datetime.now().isoformat()
+            # Create heartbeat task to prevent timeout during long operations
+            heartbeat_task = asyncio.create_task(
+                self._send_heartbeat(invoice_id, invoice.filename)
+            )
+            
+            # STEP 2: Prepare Textract Analysis
+            await self._send_step_update(invoice_id, "TEXTRACT_PREP", {
+                "pdf_path": pdf_path,
+                "filename": invoice.filename
             })
             
+            # STEP 3: Run Textract Analysis
+            await self._send_step_update(invoice_id, "TEXTRACT_RUNNING")
+            print(f"📄 Running Textract analysis...")
+            
             textract_start = time.time()
-            textract_result = await self._run_textract(pdf_path, invoice.filename, invoice_id)
+            textract_result = await self._run_textract_with_progress(pdf_path, invoice.filename, invoice_id)
             textract_duration = time.time() - textract_start
             results["timing"]["textract_duration"] = round(textract_duration, 2)
             
             if textract_result:
                 results["textract_result"] = textract_result
+                results["steps_completed"].append("textract")
                 print(f"✅ Textract completed in {textract_duration:.2f}s: {textract_result.get('output_file')}")
-                await self._send_processing_update(invoice_id, {
-                    "type": "textract_completed",
-                    "invoice_id": invoice_id,
-                    "status": f"Textract completed in {textract_duration:.2f}s",
+                await self._send_step_update(invoice_id, "TEXTRACT_COMPLETE", {
                     "duration": textract_duration,
                     "output_file": textract_result.get('output_file'),
-                    "timestamp": datetime.now().isoformat()
+                    "success": True
                 })
             else:
                 results["errors"].append("Textract analysis failed")
                 print(f"❌ Textract failed after {textract_duration:.2f}s")
-                await self._send_processing_update(invoice_id, {
-                    "type": "textract_failed",
-                    "invoice_id": invoice_id,
-                    "status": f"Textract failed after {textract_duration:.2f}s",
-                    "timestamp": datetime.now().isoformat()
+                await self._send_step_update(invoice_id, "TEXTRACT_COMPLETE", {
+                    "duration": textract_duration,
+                    "success": False,
+                    "error": "Textract analysis failed"
                 })
             
-            # Run Tesseract OCR with timing
-            print(f"🔍 Running Tesseract OCR...")
-            await self._send_processing_update(invoice_id, {
-                "type": "tesseract_started",
-                "invoice_id": invoice_id,
-                "status": "Running Tesseract OCR analysis...",
-                "timestamp": datetime.now().isoformat()
+            # STEP 4: Prepare Tesseract OCR
+            await self._send_step_update(invoice_id, "TESSERACT_PREP", {
+                "pdf_path": pdf_path,
+                "filename": invoice.filename
             })
             
+            # STEP 5: Run Tesseract OCR
+            await self._send_step_update(invoice_id, "TESSERACT_RUNNING")
+            print(f"🔍 Running Tesseract OCR...")
+            
             tesseract_start = time.time()
-            tesseract_result = await self._run_tesseract(pdf_path, invoice.filename, invoice_id)
+            tesseract_result = await self._run_tesseract_with_progress(pdf_path, invoice.filename, invoice_id)
             tesseract_duration = time.time() - tesseract_start
             results["timing"]["tesseract_duration"] = round(tesseract_duration, 2)
             
             if tesseract_result:
                 results["tesseract_result"] = tesseract_result
+                results["steps_completed"].append("tesseract")
                 print(f"✅ Tesseract completed in {tesseract_duration:.2f}s: {tesseract_result.get('output_file')}")
-                await self._send_processing_update(invoice_id, {
-                    "type": "tesseract_completed",
-                    "invoice_id": invoice_id,
-                    "status": f"Tesseract completed in {tesseract_duration:.2f}s",
+                await self._send_step_update(invoice_id, "TESSERACT_COMPLETE", {
                     "duration": tesseract_duration,
                     "output_file": tesseract_result.get('output_file'),
-                    "timestamp": datetime.now().isoformat()
+                    "success": True
                 })
             else:
                 results["errors"].append("Tesseract OCR failed")
                 print(f"❌ Tesseract failed after {tesseract_duration:.2f}s")
-                await self._send_processing_update(invoice_id, {
-                    "type": "tesseract_failed",
-                    "invoice_id": invoice_id,
-                    "status": f"Tesseract failed after {tesseract_duration:.2f}s",
-                    "timestamp": datetime.now().isoformat()
+                await self._send_step_update(invoice_id, "TESSERACT_COMPLETE", {
+                    "duration": tesseract_duration,
+                    "success": False,
+                    "error": "Tesseract OCR failed"
                 })
+            
+            # STEP 6: Finalize processing
+            await self._send_step_update(invoice_id, "FINALIZING")
             
             # Calculate total processing time
             results["completed_at"] = datetime.now().isoformat()
@@ -172,18 +233,18 @@ class InvoiceProcessingService:
             results_file = self._save_processing_results(invoice_id, invoice.filename, results)
             print(f"💾 Results saved to: {results_file}")
             
-            # Send final completion update
-            await self._send_processing_update(invoice_id, {
-                "type": "processing_completed",
-                "invoice_id": invoice_id,
-                "status": f"Processing completed in {total_duration:.2f}s",
+            # STEP 7: Processing completed
+            await self._send_step_update(invoice_id, "COMPLETED", {
                 "total_duration": total_duration,
                 "textract_duration": results["timing"].get("textract_duration", 0),
                 "tesseract_duration": results["timing"].get("tesseract_duration", 0),
                 "results_file": results_file,
                 "errors": results.get("errors", []),
-                "timestamp": datetime.now().isoformat()
+                "steps_completed": results["steps_completed"]
             })
+            
+            # Cancel heartbeat task
+            heartbeat_task.cancel()
             
             # Send final batch progress update
             await self._send_batch_progress_update(invoice.batch_id, db)
@@ -432,6 +493,111 @@ class InvoiceProcessingService:
             json.dump(results, f, indent=2, ensure_ascii=False)
         
         return results_file
+    
+    async def _send_step_update(self, invoice_id: int, step: str, extra_data: Dict[str, Any] = None):
+        """Send detailed step update via WebSocket"""
+        step_info = self.PROCESSING_STEPS.get(step, {"name": step, "description": f"Processing step: {step}"})
+        
+        update_data = {
+            "type": "processing_step",
+            "invoice_id": invoice_id,
+            "step": step,
+            "step_name": step_info["name"],
+            "step_description": step_info["description"],
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        if extra_data:
+            update_data.update(extra_data)
+        
+        await self._send_processing_update(invoice_id, update_data)
+        print(f"📊 Step [{step}]: {step_info['name']} - {step_info['description']}")
+    
+    async def _send_heartbeat(self, invoice_id: int, filename: str):
+        """Send periodic heartbeat updates to prevent timeout appearance"""
+        try:
+            while True:
+                await asyncio.sleep(self.HEARTBEAT_INTERVAL)
+                await self._send_processing_update(invoice_id, {
+                    "type": "processing_heartbeat",
+                    "invoice_id": invoice_id,
+                    "filename": filename,
+                    "status": "Processing in progress...",
+                    "timestamp": datetime.now().isoformat()
+                })
+        except asyncio.CancelledError:
+            # Heartbeat cancelled - processing completed or failed
+            pass
+    
+    async def _run_textract_with_progress(self, pdf_path: str, filename: str, invoice_id: int) -> Optional[Dict[str, Any]]:
+        """Run Textract with progress updates"""
+        try:
+            # Send progress update
+            await self._send_processing_update(invoice_id, {
+                "type": "textract_progress",
+                "invoice_id": invoice_id,
+                "status": "Starting AWS Textract analysis...",
+                "timestamp": datetime.now().isoformat()
+            })
+            
+            # Call the original textract method
+            result = await self._run_textract(pdf_path, filename, invoice_id)
+            
+            if result:
+                await self._send_processing_update(invoice_id, {
+                    "type": "textract_progress",
+                    "invoice_id": invoice_id,
+                    "status": "AWS Textract analysis completed successfully",
+                    "output_file": result.get('output_file'),
+                    "timestamp": datetime.now().isoformat()
+                })
+            
+            return result
+            
+        except Exception as e:
+            await self._send_processing_update(invoice_id, {
+                "type": "textract_progress",
+                "invoice_id": invoice_id,
+                "status": f"AWS Textract analysis failed: {str(e)}",
+                "error": str(e),
+                "timestamp": datetime.now().isoformat()
+            })
+            return None
+    
+    async def _run_tesseract_with_progress(self, pdf_path: str, filename: str, invoice_id: int) -> Optional[Dict[str, Any]]:
+        """Run Tesseract with progress updates"""
+        try:
+            # Send progress update
+            await self._send_processing_update(invoice_id, {
+                "type": "tesseract_progress",
+                "invoice_id": invoice_id,
+                "status": "Starting Tesseract OCR analysis...",
+                "timestamp": datetime.now().isoformat()
+            })
+            
+            # Call the original tesseract method
+            result = await self._run_tesseract(pdf_path, filename, invoice_id)
+            
+            if result:
+                await self._send_processing_update(invoice_id, {
+                    "type": "tesseract_progress",
+                    "invoice_id": invoice_id,
+                    "status": "Tesseract OCR analysis completed successfully",
+                    "output_file": result.get('output_file'),
+                    "timestamp": datetime.now().isoformat()
+                })
+            
+            return result
+            
+        except Exception as e:
+            await self._send_processing_update(invoice_id, {
+                "type": "tesseract_progress",
+                "invoice_id": invoice_id,
+                "status": f"Tesseract OCR analysis failed: {str(e)}",
+                "error": str(e),
+                "timestamp": datetime.now().isoformat()
+            })
+            return None
 
 
 # Global service instance

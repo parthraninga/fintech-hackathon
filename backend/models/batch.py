@@ -61,6 +61,11 @@ class Batch(Base):
         return f"<Batch {self.name} - {self.status.value}>"
     
     @property
+    def batch_number(self) -> str:
+        """Generate human-readable batch number"""
+        return f"BATCH-{self.id:06d}"
+    
+    @property
     def is_active(self) -> bool:
         """Check if batch is actively processing"""
         return self.status in [BatchStatus.CREATED, BatchStatus.PROCESSING]
